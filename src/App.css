@@ -40,6 +40,7 @@ ul.characterList li.selectedCharacter {
 
 .filmDetails article {
     margin: 0 0 20px 0px;
+    border-bottom: 1px solid #af80808f;
 }
 
 .filmDetails article .filmDetails__filmTitle {
