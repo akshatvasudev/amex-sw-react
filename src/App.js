@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';  
 import './App.css';
 import Characters from './characters';
 import CharacterDetails from './characterDetails';
@@ -15,11 +14,12 @@ class App extends Component {
   state = {
     characters:[],
     movies:[],
+    selectedCharacterId: -1,
     hasError: false
   };
   componentDidMount() {
     let _characterMap = characterList.characters.map((char) => {
-        char.id = Math.floor(Math.random() * 100) + 1;
+        char.id = Math.random().toString(36).substr(2, 9);
         return char;
       });
       this.setState({characters:_characterMap});
@@ -37,7 +37,11 @@ class App extends Component {
 
   getCharacterDetails(id) {
     let selectedCharacter = this.state.characters.filter((char) => {
-      return char.id === id;
+      if(char.id === id){
+        this.setState({selectedCharacterId:char.id});
+        return true;
+      }
+      return false;
     });
     axios.get(selectedCharacter?selectedCharacter[0].url:'').then((data) => {
       this.setState({hasError:false});
@@ -49,7 +53,7 @@ class App extends Component {
   render() {
     return (
       <div>
-      <Characters characters={this.state.characters} onClick={this.getCharacterDetails}/>
+      <Characters characters={this.state.characters} onClick={this.getCharacterDetails} selectedCharacterId={this.state.selectedCharacterId}/>
       <CharacterDetails details={this.state.movies} hasError={this.state.hasError} />
       </div>
     );

@@ -18,13 +18,18 @@ ul.characterList li {
     cursor: pointer;
     font-size: 2vw;
 }
-ul.characterList li:hover{
-  color: #c8c8c8;
+
+ul.characterList li:hover {
+    color: #c8c8c8;
 }
 
-.filmDetails{
-  width: 50%;
-  margin: 0 auto;
+ul.characterList li.selectedCharacter {
+    background: #4c4e50;
+}
+
+.filmDetails {
+    width: 50%;
+    margin: 0 auto;
 }
 
 .filmDetails h4 {
@@ -52,14 +57,14 @@ ul.characterList li:hover{
     font-size: 1vw;
 }
 
-.filmDetails__filmCrawl{
-  transform: perspective(600px) rotateX(45deg);
+.filmDetails__filmCrawl {
+    transform: perspective(600px) rotateX(45deg);
 }
 
-.filmDetails--selectCharacter,.filmDetails__errorMessage{
+.filmDetails--selectCharacter,
+.filmDetails__errorMessage {
     font-size: 2.5em;
     text-align: center;
     margin-top: 2%;
     color: #6d6d6d;
 }
-
