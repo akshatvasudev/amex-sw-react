@@ -8,3 +8,4 @@ npm start
 ```
 
 The app will run on http://localhost:3000
+A working example can be viewed at https://akshatvasudev.github.io/index.html
